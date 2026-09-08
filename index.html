@@ -3,347 +3,81 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Interventional Radiology — Cape Town</title>
+<title>West Coast IR | Interventional Radiology, South Africa</title>
+<meta name="description" content="Minimally invasive, image-guided treatment across South Africa — an alternative to open surgery with less pain and faster recovery.">
+<link rel="icon" href="icons/logo-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 <style>
-  :root{
-    --ink:#12181F;
-    --paper:#EAEDE9;
-    --paper-2:#F4F5F2;
-    --fluoro:#0B1116;
-    --fluoro-2:#151E26;
-    --teal:#5B8C87;
-    --gold:#C89B3C;
-    --line:#33424A;
-    --line-light:#C7CFCB;
-    --max:1080px;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'IBM Plex Sans', sans-serif;
-    font-size:16px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  a{color:inherit;}
-  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
-  .eyebrow{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    display:flex;
-    align-items:center;
-    gap:10px;
-  }
-  .eyebrow::before{
-    content:"";
-    width:22px; height:1px;
-    background:currentColor;
-    display:inline-block;
-  }
-  h1,h2,h3{
-    font-family:'Fraunces', serif;
-    font-weight:500;
-    letter-spacing:-0.01em;
-  }
-  :focus-visible{
-    outline:2px solid var(--gold);
-    outline-offset:3px;
-  }
-  @media (prefers-reduced-motion: reduce){
-    *{animation:none !important; transition:none !important;}
-  }
-
-  /* ===== NAV ===== */
-  nav{
-    position:sticky; top:0; z-index:50;
-    background:rgba(11,17,22,0.92);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line);
-  }
-  nav .wrap{
-    display:flex; align-items:center; justify-content:space-between;
-    height:64px;
-  }
-  .nav-name{
-    font-family:'IBM Plex Mono', monospace;
-    color:var(--paper);
-    font-size:13px;
-    letter-spacing:0.06em;
-  }
-  .nav-links{
-    display:flex; gap:28px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
-    letter-spacing:0.06em;
-    text-transform:uppercase;
-  }
-  .nav-links a{
-    color:#9FB1AC;
-    text-decoration:none;
-    padding:4px 0;
-    border-bottom:1px solid transparent;
-    transition:color 0.2s, border-color 0.2s;
-  }
-  .nav-links a:hover{ color:var(--paper); border-color:var(--teal); }
-  .nav-links .cta{
-    color:var(--gold);
-  }
-  @media (max-width:640px){
-    .nav-links{gap:16px;}
-    .nav-links span.label{display:none;}
-  }
-
-  /* ===== HERO (dark / fluoro screen) ===== */
-  .hero{
-    background:radial-gradient(120% 140% at 15% -10%, var(--fluoro-2) 0%, var(--fluoro) 55%);
-    color:var(--paper);
-    padding:96px 0 64px;
-    position:relative;
-    overflow:hidden;
-  }
-  .hero .eyebrow{color:var(--teal);}
-  .hero h1{
-    font-size:clamp(38px, 6vw, 66px);
-    margin:22px 0 20px;
-    max-width:780px;
-    color:#F4F5F2;
-  }
-  .hero h1 em{
-    font-style:italic;
-    color:var(--gold);
-  }
-  .hero p.sub{
-    max-width:520px;
-    color:#B9C4C0;
-    font-size:17px;
-    margin-bottom:36px;
-  }
+  .hero{ background:linear-gradient(180deg, #F0F6F7 0%, var(--paper) 60%); padding:88px 0 76px; position:relative; overflow:hidden; }
+  .hero h1{ font-size:clamp(38px,5.6vw,62px); margin:6px 0 18px; max-width:740px; color:var(--navy); line-height:1.08; }
+  .hero h1 em{ font-style:italic; background:linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .hero .credential{ font-size:16px; color:#3E4C52; max-width:580px; margin-bottom:8px; }
+  .hero .sub{ font-size:15.5px; color:#6B7A80; max-width:540px; margin-bottom:32px; }
   .hero .cta-row{ display:flex; gap:16px; flex-wrap:wrap; }
-  .btn{
-    display:inline-block;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:13px;
-    letter-spacing:0.05em;
-    text-decoration:none;
-    padding:13px 22px;
-    border-radius:2px;
-    transition:transform 0.15s ease, background 0.2s ease;
-  }
-  .btn:hover{ transform:translateY(-1px); }
-  .btn-primary{ background:var(--gold); color:var(--fluoro); }
-  .btn-primary:hover{ background:#DAB05C; }
-  .btn-ghost{ border:1px solid var(--line); color:var(--paper); }
-  .btn-ghost:hover{ border-color:var(--teal); }
-
-  /* vessel path svg */
-  .vessel-wrap{
-    position:absolute; right:-4%; top:0; bottom:0;
-    width:58%;
-    opacity:0.9;
-    pointer-events:none;
-  }
-  .vessel-path{
-    fill:none;
-    stroke:var(--teal);
-    stroke-width:2;
-    stroke-linecap:round;
-    stroke-dasharray:1400;
-    stroke-dashoffset:1400;
-    animation:draw 2.6s ease forwards 0.3s;
-  }
-  .vessel-path.secondary{
-    stroke:#3B4F55;
-    stroke-width:1.4;
-    animation-delay:0.6s;
-  }
-  .vessel-dot{
-    fill:var(--gold);
-    opacity:0;
-    animation:appear 0.4s ease forwards 2.6s;
-  }
+  .vessel-wrap{ position:absolute; right:-6%; top:0; bottom:0; width:48%; opacity:0.5; pointer-events:none; }
+  .vessel-path{ fill:none; stroke:var(--teal); stroke-width:2; stroke-linecap:round; stroke-dasharray:1400; stroke-dashoffset:1400; animation:draw 2.6s ease forwards .3s; }
+  .vessel-path.secondary{ stroke:#C9D6DA; stroke-width:1.4; animation-delay:.6s; }
+  .vessel-dot{ fill:var(--gold); opacity:0; animation:appear .4s ease forwards 2.6s; }
   @keyframes draw{ to{ stroke-dashoffset:0; } }
   @keyframes appear{ to{ opacity:1; } }
   @media (max-width:820px){ .vessel-wrap{ display:none; } }
 
-  /* ===== SECTION SHARED ===== */
-  section{ padding:88px 0; }
-  .section-head{ max-width:600px; margin-bottom:48px; }
-  .section-head h2{ font-size:clamp(28px,3.4vw,38px); margin-top:16px; }
-  .section-head p{ color:#4A5A55; margin-top:14px; font-size:15.5px; }
+  .proc-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+  @media (max-width:960px){ .proc-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px){ .proc-grid{ grid-template-columns:1fr; } }
+  .proc-cat{ padding:28px; text-decoration:none; color:inherit; display:flex; flex-direction:column; }
+  .proc-cat .code{ font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--teal-deep); letter-spacing:0.06em; margin-top:14px; }
+  .proc-cat h3{ font-size:17px; margin:6px 0 0; font-weight:500; color:var(--navy); }
 
-  /* ===== PROCEDURES ===== */
-  .procedures{ background:var(--paper); }
-  .proc-grid{
-    display:grid;
-    grid-template-columns:repeat(2, 1fr);
-    gap:1px;
-    background:var(--line-light);
-    border:1px solid var(--line-light);
-  }
-  @media (max-width:720px){ .proc-grid{ grid-template-columns:1fr; } }
-  .proc-cat{ background:var(--paper-2); padding:32px; }
-  .proc-cat .code{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
-    color:var(--teal);
-    letter-spacing:0.06em;
-  }
-  .proc-cat h3{
-    font-size:20px;
-    margin:10px 0 16px;
-    font-weight:500;
-  }
-  .proc-cat ul{ list-style:none; }
-  .proc-cat li{
-    font-size:14.5px;
-    padding:9px 0;
-    border-top:1px solid #DADFDA;
-    color:#33403C;
-  }
-  .proc-cat li:first-child{ border-top:none; }
+  .approach-preview{ background:var(--paper-2); }
+  .approach-grid{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+  @media (max-width:820px){ .approach-grid{ grid-template-columns:1fr; } }
+  .approach-grid img{ border-radius:16px; box-shadow:var(--shadow-lift); }
+  .approach-grid p.lead{ font-size:17px; color:#3E4C52; margin-bottom:20px; }
 
-  /* ===== APPROACH / BIO ===== */
-  .approach{ background:var(--paper-2); }
-  .approach .grid{
-    display:grid;
-    grid-template-columns:1fr 1.4fr;
-    gap:56px;
-  }
-  @media (max-width:800px){ .approach .grid{ grid-template-columns:1fr; } }
-  .credentials{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:13.5px;
-    border-top:1px solid var(--line-light);
-  }
-  .credentials div{
-    display:flex; justify-content:space-between;
-    padding:12px 0;
-    border-bottom:1px solid var(--line-light);
-    gap:16px;
-  }
-  .credentials span:first-child{ color:#5C6B66; }
-  .approach .bio p{
-    font-size:16.5px;
-    color:#293530;
-    margin-bottom:16px;
-  }
-  .bio p:first-of-type::first-letter{
-    font-family:'Fraunces', serif;
-    font-size:52px;
-    line-height:0.8;
-    float:left;
-    margin:6px 8px 0 0;
-    color:var(--teal);
-  }
-  .placeholder-note{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11.5px;
-    color:#8A6A2A;
-    background:#F3E9D2;
-    display:inline-block;
-    padding:3px 8px;
-    border-radius:2px;
-    margin-top:18px;
-  }
-
-  /* ===== REFERRAL PATHWAY (dark) ===== */
-  .pathway{
-    background:var(--fluoro);
-    color:var(--paper);
-  }
-  .pathway .eyebrow{ color:var(--teal); }
-  .pathway .section-head p{ color:#94A4A0; }
-  .steps{
-    position:relative;
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    gap:24px;
-  }
+  .steps{ position:relative; display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
   @media (max-width:820px){ .steps{ grid-template-columns:1fr; } }
-  .steps::before{
-    content:"";
-    position:absolute;
-    top:17px; left:0; right:0;
-    height:1px;
-    background:linear-gradient(90deg, var(--teal), var(--line));
-  }
+  .steps::before{ content:""; position:absolute; top:17px; left:0; right:0; height:1px; background:linear-gradient(90deg,var(--teal),var(--line)); }
   @media (max-width:820px){ .steps::before{ display:none; } }
   .step{ position:relative; padding-top:44px; }
-  .step .num{
-    position:absolute; top:0; left:0;
-    width:34px; height:34px;
-    border-radius:50%;
-    background:var(--fluoro-2);
-    border:1px solid var(--teal);
-    display:flex; align-items:center; justify-content:center;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
-    color:var(--gold);
-  }
-  .step h4{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:13px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    margin-bottom:10px;
-    color:var(--paper);
-  }
-  .step p{ font-size:14.5px; color:#9FADA8; }
+  .step .num{ position:absolute; top:0; left:0; width:34px; height:34px; border-radius:50%; background:var(--navy); border:1px solid var(--teal); display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--gold); }
+  .step h4{ font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:10px; color:var(--navy); }
+  .step p{ font-size:14.5px; color:#5C6B72; }
 
-  /* ===== CONTACT / FOOTER ===== */
-  footer{
-    background:var(--paper-2);
-    border-top:1px solid var(--line-light);
-    padding:64px 0 40px;
-  }
-  .foot-grid{
-    display:grid;
-    grid-template-columns:1.2fr 1fr 1fr;
-    gap:40px;
-    margin-bottom:48px;
-  }
-  @media (max-width:720px){ .foot-grid{ grid-template-columns:1fr; gap:32px; } }
-  footer h3{ font-size:22px; margin-bottom:10px; }
-  footer .sub{ color:#5C6B66; font-size:14.5px; }
-  .foot-col .label{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11.5px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:var(--teal);
-    margin-bottom:10px;
-  }
-  .foot-col div.item{ font-size:14.5px; margin-bottom:6px; color:#293530; }
-  .foot-bottom{
-    border-top:1px solid var(--line-light);
-    padding-top:24px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11.5px;
-    color:#7A8983;
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
-  }
+  .closing{ background:linear-gradient(180deg, var(--paper) 0%, #F0F6F7 100%); text-align:center; }
+  .closing .wrap{ max-width:640px; }
+  .closing h2{ font-size:clamp(28px,4vw,40px); margin-bottom:16px; color:var(--navy); }
+  .closing p{ color:#5C6B72; font-size:16.5px; margin-bottom:32px; }
 </style>
 </head>
-<body>
+<body class="show-patient">
 
 <nav>
   <div class="wrap">
-    <div class="nav-name">DR&nbsp;YESH&nbsp;[SURNAME]&nbsp;·&nbsp;IR</div>
+    <a class="nav-brand" href="index.html"><span class="mark"><img src="icons/logo-mark.png" alt="West Coast IR logo"></span> West Coast IR</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">MENU</button>
     <div class="nav-links">
-      <a href="#procedures"><span class="label">01</span> Procedures</a>
-      <a href="#approach"><span class="label">02</span> Approach</a>
-      <a href="#referral"><span class="label">03</span> Referral</a>
-      <a href="#contact" class="cta"><span class="label">04</span> Contact</a>
+      <a href="index.html" class="current">Home</a>
+      <a href="about.html">About</a>
+      <a href="procedures.html">Procedures</a>
+      <a href="contact.html">Contact</a>
+      <a href="appointments.html" class="nav-cta">Book Now</a>
     </div>
   </div>
 </nav>
+
+<div class="audience-bar">
+  <div class="wrap">
+    <span class="label">Viewing as:</span>
+    <div class="audience-toggle">
+      <button type="button" class="active" onclick="setAudience('patient')">Patient</button>
+      <button type="button" onclick="setAudience('clinician')">Referring Clinician</button>
+    </div>
+  </div>
+</div>
 
 <header class="hero">
   <div class="vessel-wrap" aria-hidden="true">
@@ -354,144 +88,132 @@
     </svg>
   </div>
   <div class="wrap">
-    <div class="eyebrow">Interventional Radiology &nbsp;·&nbsp; Cape Town</div>
-    <h1>Precision access.<br><em>Minimally invasive.</em> Maximally considered.</h1>
-    <p class="sub">A fellowship-trained interventional radiology service for referring physicians across Cape Town — image-guided treatment for vascular, oncologic, and musculoskeletal conditions.</p>
-    <div class="cta-row">
-      <a href="#referral" class="btn btn-primary">Refer a patient</a>
-      <a href="#procedures" class="btn btn-ghost">View procedures</a>
+    <span class="badge reveal" style="display:inline-block; background:var(--navy); color:#fff; font-family:'IBM Plex Mono', monospace; font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase; padding:6px 14px; border-radius:999px; margin-bottom:20px;">Interventional Radiology · South Africa</span>
+    <h1 class="reveal">Minimally invasive care.<br><em>A bigger</em> difference.</h1>
+    <p class="credential reveal">Canadian-trained Associate Professor of Interventional Radiology, bringing image-guided treatment across South Africa for conditions that would otherwise require open surgery.</p>
+    <p class="sub aud-patient reveal">A safe, effective alternative to surgery — with less pain and faster recovery.</p>
+    <p class="sub aud-clinician reveal">Accepting referrals for vascular, oncologic, musculoskeletal, and liver-directed interventions.</p>
+    <div class="cta-row aud-patient reveal">
+      <a href="appointments.html" class="btn btn-primary">Get in Touch</a>
+      <a href="procedures.html" class="btn btn-ghost">See Treatments</a>
+    </div>
+    <div class="cta-row aud-clinician reveal">
+      <a href="contact.html" class="btn btn-primary">Refer a Patient</a>
+      <a href="procedures.html" class="btn btn-ghost">View Procedures</a>
     </div>
   </div>
 </header>
 
-<section class="procedures" id="procedures">
+<section class="procedures">
   <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow" style="color:var(--teal)">Procedures</div>
-      <h2>Care organised by vascular territory</h2>
-      <p>Each pathway below reflects the anatomy it treats — from access to target.</p>
+    <div class="section-head reveal">
+      <div class="eyebrow">Procedures</div>
+      <h2>Ways we can help</h2>
+      <p>Grouped simply, so it's easy to find what applies to you.</p>
     </div>
-    <div class="proc-grid">
-      <div class="proc-cat">
-        <div class="code">VAS · Vascular</div>
-        <h3>Peripheral &amp; venous</h3>
-        <ul>
-          <li>Peripheral angioplasty &amp; stenting</li>
-          <li>Uterine fibroid embolization (UFE)</li>
-          <li>Varicose vein ablation</li>
-          <li>Dialysis access intervention</li>
-        </ul>
-      </div>
-      <div class="proc-cat">
-        <div class="code">ONC · Oncologic</div>
-        <h3>Tumour-directed therapy</h3>
-        <ul>
-          <li>Chemoembolization (TACE)</li>
-          <li>Y90 radioembolization</li>
-          <li>Radiofrequency &amp; microwave ablation</li>
-        </ul>
-      </div>
-      <div class="proc-cat">
-        <div class="code">DX · Diagnostic &amp; Access</div>
-        <h3>Biopsy &amp; access</h3>
-        <ul>
-          <li>Image-guided biopsy</li>
-          <li>Abscess &amp; fluid drainage</li>
-          <li>Central venous access (PICC / port)</li>
-        </ul>
-      </div>
-      <div class="proc-cat">
-        <div class="code">MSK · Pain &amp; Skeletal</div>
-        <h3>Musculoskeletal</h3>
-        <ul>
-          <li>Vertebroplasty</li>
-          <li>Genicular artery embolization</li>
-        </ul>
-      </div>
+    <div class="proc-grid reveal-group">
+      <a class="proc-cat card" href="procedures.html#vas"><div class="icon-ring"><img src="icons/peripheral-venous.png" alt="Peripheral and venous"></div><div class="code">VAS</div><h3>Peripheral &amp; Venous</h3></a>
+      <a class="proc-cat card" href="procedures.html#onc"><div class="icon-ring"><img src="icons/oncologic.png" alt="Oncologic"></div><div class="code">ONC</div><h3>Oncologic</h3></a>
+      <a class="proc-cat card" href="procedures.html#dx"><div class="icon-ring"><img src="icons/diagnostic-access.png" alt="Diagnostic and access"></div><div class="code">DX</div><h3>Diagnostic &amp; Access</h3></a>
+      <a class="proc-cat card" href="procedures.html#msk"><div class="icon-ring"><img src="icons/msk-knee.png" alt="Musculoskeletal"></div><div class="code">MSK</div><h3>MSK &amp; Pain</h3></a>
+      <a class="proc-cat card" href="procedures.html#men"><div class="icon-ring"><img src="icons/mens-health.png" alt="Men's health"></div><div class="code">MEN</div><h3>Men's Health</h3></a>
+      <a class="proc-cat card" href="procedures.html#wom"><div class="icon-ring"><img src="icons/womens-health.png" alt="Women's health"></div><div class="code">WOM</div><h3>Women's Health</h3></a>
+      <a class="proc-cat card" href="procedures.html#liv"><div class="icon-ring"><img src="icons/liver.png" alt="Liver-directed care"></div><div class="code">LIV</div><h3>Liver-Directed Care</h3></a>
     </div>
   </div>
 </section>
 
-<section class="approach" id="approach">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow" style="color:var(--teal)">Approach</div>
-      <h2>Trained for the target, not just the route</h2>
+<section class="approach-preview">
+  <div class="wrap approach-grid">
+    <div class="reveal">
+      <div class="eyebrow">Approach</div>
+      <h2 style="font-size:clamp(26px,3.4vw,36px); margin:16px 0 20px; color:var(--navy);">Our approach to your care</h2>
+      <p class="lead">Many of these treatments are already well established internationally, and we believe patients in South Africa should be able to access them close to home.</p>
+      <p class="lead">Drawing on advanced training at McGill University and in Calgary, we combine image-guided expertise with a genuinely patient-first approach.</p>
+      <a href="about.html" class="btn btn-primary">Learn More</a>
     </div>
-    <div class="grid">
-      <div class="credentials">
-        <div><span>Training</span><span>[Fellowship institution, year]</span></div>
-        <div><span>Board certification</span><span>[Certifying body]</span></div>
-        <div><span>Practice base</span><span>Cape Town, South Africa</span></div>
-        <div><span>Focus areas</span><span>Vascular · Oncologic · MSK</span></div>
-      </div>
-      <div class="bio">
-        <p>Dr Yesh [Surname] is a fellowship-trained interventional radiologist offering image-guided, minimally invasive alternatives to open surgery — built around shorter recovery times and precise, targeted treatment.</p>
-        <p>[Add 2–3 sentences here on training background, clinical philosophy, and areas of particular interest — this is the section referring physicians read to gauge fit for complex cases.]</p>
-        <div class="placeholder-note">Placeholder — replace with real bio &amp; credentials</div>
-      </div>
-    </div>
+    <img class="reveal" src="https://images.squarespace-cdn.com/content/v1/6a7a5961c467571fc6a3079b/f092de16-b40f-4184-9051-f586629a26ec/ChatGPT+Image+Aug+25%2C+2026%2C+05_35_37+PM.png" alt="Medical team reviewing angiogram imaging in a procedure room">
   </div>
 </section>
 
-<section class="pathway" id="referral">
+<section class="pathway">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head aud-patient reveal">
+      <div class="eyebrow">What to expect</div>
+      <h2>From first visit to feeling better</h2>
+      <p>A straightforward path, explained clearly at every step.</p>
+    </div>
+    <div class="steps aud-patient reveal-group">
+      <div class="step"><div class="num">01</div><h4>Reach Out</h4><p>Contact us directly — a referral is welcome, but not required.</p></div>
+      <div class="step"><div class="num">02</div><h4>Consultation</h4><p>We review your case together and talk through your options.</p></div>
+      <div class="step"><div class="num">03</div><h4>Treatment</h4><p>Most procedures are a day case, without open surgery.</p></div>
+      <div class="step"><div class="num">04</div><h4>Recovery</h4><p>We follow up with you personally as you recover.</p></div>
+    </div>
+    <div class="section-head aud-clinician reveal">
       <div class="eyebrow">Referral pathway</div>
       <h2>Four steps, start to follow-up</h2>
       <p>The same route a catheter takes — access, navigate, treat, close.</p>
     </div>
-    <div class="steps">
-      <div class="step">
-        <div class="num">01</div>
-        <h4>Refer</h4>
-        <p>Send patient details and relevant imaging via the referral form, fax, or email below.</p>
-      </div>
-      <div class="step">
-        <div class="num">02</div>
-        <h4>Review</h4>
-        <p>Case reviewed within [X] business days, with multidisciplinary input where useful.</p>
-      </div>
-      <div class="step">
-        <div class="num">03</div>
-        <h4>Procedure</h4>
-        <p>Scheduled at [facility name]. Most procedures are performed as a day case.</p>
-      </div>
-      <div class="step">
-        <div class="num">04</div>
-        <h4>Follow-up</h4>
-        <p>Procedure report and follow-up plan sent directly back to the referring physician.</p>
-      </div>
+    <div class="steps aud-clinician reveal-group">
+      <div class="step"><div class="num">01</div><h4>Refer</h4><p>Send patient details and imaging via the referral form, fax, or email.</p></div>
+      <div class="step"><div class="num">02</div><h4>Review</h4><p>Case reviewed within a few business days.</p></div>
+      <div class="step"><div class="num">03</div><h4>Procedure</h4><p>Scheduled at our partner facility, usually as a day case.</p></div>
+      <div class="step"><div class="num">04</div><h4>Follow-up</h4><p>Report and follow-up plan sent back to you.</p></div>
     </div>
   </div>
 </section>
 
-<footer id="contact">
+<section class="closing">
+  <div class="wrap reveal">
+    <h2>Ready for Relief Without Surgery?</h2>
+    <p>Minimally invasive treatment across South Africa for conditions that would otherwise need open surgery.</p>
+    <a href="appointments.html" class="btn btn-primary">Get in Touch</a>
+  </div>
+</section>
+
+<footer id="contact-footer">
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <h3>Refer with confidence.</h3>
-        <p class="sub">Fast turnaround for urgent cases. Direct line for referring physicians.</p>
+        <h3 class="aud-patient">Questions? We're here to help.</h3>
+        <p class="aud-patient" style="color:#9FC1D2;">Reach out directly, or ask your doctor for a referral.</p>
+        <h3 class="aud-clinician">Refer with confidence.</h3>
+        <p class="aud-clinician" style="color:#9FC1D2;">Fast turnaround for urgent cases.</p>
       </div>
       <div class="foot-col">
         <div class="label">Contact</div>
         <div class="item">[Phone number]</div>
-        <div class="item">[Referral fax]</div>
         <div class="item">[Email address]</div>
       </div>
       <div class="foot-col">
         <div class="label">Location</div>
-        <div class="item">[Facility / practice name]</div>
         <div class="item">Cape Town, South Africa</div>
-        <div class="item">[Suburb / address]</div>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Dr Yesh [Surname] · Interventional Radiology</span>
-      <span>Site built as a starting draft — replace bracketed placeholders</span>
+      <span>© 2026 West Coast Interventional Radiology</span>
+      <span>South Africa</span>
     </div>
   </div>
 </footer>
 
+<script>
+  function setAudience(type){
+    document.body.classList.remove('show-patient','show-clinician');
+    document.body.classList.add('show-' + type);
+    document.querySelectorAll('.audience-toggle button').forEach(function(btn){
+      btn.classList.toggle('active', btn.textContent.toLowerCase().includes(type));
+    });
+  }
+  (function(){
+    var els = document.querySelectorAll('.reveal, .reveal-group');
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
+      });
+    }, { threshold:0.1, rootMargin:'0px 0px -40px 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  })();
+</script>
 </body>
 </html>
