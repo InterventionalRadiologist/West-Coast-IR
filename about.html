@@ -27,4 +27,109 @@
   .story p:first-of-type::first-letter{ font-family:'Fraunces', serif; font-size:54px; line-height:0.75; float:left; margin:6px 10px 0 0; color:var(--teal-deep); }
 
   .explainer{ background:linear-gradient(160deg, var(--navy-light) 0%, var(--navy) 100%); color:#fff; border-radius:20px; padding:52px; margin-top:80px; box-shadow:var(--shadow-lift); }
-  @media (max-width:600px){ .explainer{
+  @media (max-width:600px){ .explainer{ padding:32px 24px; } }
+  .explainer .eyebrow{ color:var(--teal); }
+  .explainer h3{ font-size:26px; margin:14px 0 20px; color:#fff; }
+  .explainer p{ font-size:15.5px; color:#C7D9E0; margin-bottom:14px; max-width:720px; }
+  .video-embed{ margin-top:32px; border-radius:14px; overflow:hidden; position:relative; aspect-ratio:16/9; background:rgba(0,0,0,0.2); display:flex; align-items:center; justify-content:center; }
+</style>
+</head>
+<body class="show-patient">
+
+<nav>
+  <div class="wrap">
+    <a class="nav-brand" href="index.html"><span class="mark"><img src="logo-mark.png" alt="West Coast IR logo"></span> West Coast IR</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">MENU</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="current">About</a>
+      <a href="procedures.html">Procedures</a>
+      <a href="contact.html">Contact</a>
+      <a href="appointments.html" class="nav-cta">Book Now</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="wrap">
+    <span class="badge reveal">About</span>
+    <h1 class="reveal">Our approach to your care</h1>
+    <p class="reveal">Advanced training, applied with a genuinely patient-first philosophy.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="intro-grid">
+      <div class="reveal">
+        <p class="lead">Many of these treatments are already well established internationally, and we believe patients in South Africa should be able to access them close to home.</p>
+        <p class="lead">Drawing on advanced training at McGill University and in Calgary, we combine image-guided expertise with a genuinely patient-first approach: less invasive treatment, shorter recovery, and high-quality, personalised care.</p>
+        <div class="credentials">
+          <div><span>Training</span><span>McGill University &amp; University of Calgary</span></div>
+          <div><span>Title</span><span>Associate Professor of Interventional Radiology</span></div>
+          <div><span>Practice base</span><span>Cape Town, South Africa</span></div>
+          <div><span>Focus areas</span><span>Vascular · Oncologic · MSK · Liver</span></div>
+        </div>
+      </div>
+      <img class="reveal" src="headshot(1).jpg" alt="Dr Yesh, interventional radiologist">
+    </div>
+
+    <div class="story reveal">
+      <div class="eyebrow">Why This Work</div>
+      <h2>Dr Yesh's Story</h2>
+      <p>Dr Yesh's path into interventional radiology didn't start in a classroom. It started with his mother.</p>
+      <p>While he was still in medical school, she was diagnosed with heavy menstrual bleeding — the kind that disrupts a life, not just a cycle. The answer she was offered was a hysterectomy. She wanted another option, and so did he. That search led them to uterine fibroid embolization — a treatment that gave her real relief without taking that choice from her. Watching it work, up close, as her son rather than her doctor, changed the direction of his career.</p>
+      <p>He finished at the top of his medical school class and moved straight into diagnostic radiology training. Even before he specialised further, he was already teaching — running workshops and building out service capacity in his final year of IR training, driven by the same instinct that had shaped his own path: making sure other people had access to the option his mother almost didn't.</p>
+      <p>To bring back the most advanced version of that care, he pursued fellowship training at McGill University, where he was recognised as Fellow Teacher of the Year. From there, he moved to the University of Calgary, where he earned the title of Associate Professor and practised within a world-class cancer centre — sharpening his skills in cancer care, embolization, and pain management alongside some of the field's leading specialists.</p>
+      <p>Every step of that training was aimed at one outcome: bringing that same level of care home to South Africa, so that other patients — and other families — could feel what his mother felt. Relief, and a choice.</p>
+    </div>
+
+    <div class="explainer reveal">
+      <div class="eyebrow">What Is Interventional Radiology?</div>
+      <h3>A different way in</h3>
+      <p>Traditional surgery reaches a problem by opening the body up so it can be seen directly. Interventional radiology reaches the same problem a different way — using real-time X-ray, ultrasound, or CT to see inside the body without opening it, then guiding a thin catheter or needle through a small puncture to the exact site of the problem, allowing treatment to be performed from there.</p>
+      <p>The result is the same precision, achieved without the incision — treating a narrowed artery, a tumour, or a fibroid while leaving the surrounding tissue undisturbed.</p>
+      <div class="video-embed">
+        <p style="color:#9FC1D2; font-family:'IBM Plex Mono',monospace; font-size:12px; text-align:center; padding:0 20px;">VIDEO PLACEHOLDER — replace with a YouTube embed once you've picked a video</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h3>Questions? We're here to help.</h3>
+        <p style="color:#9FC1D2;">Reach out directly, or ask your doctor for a referral.</p>
+      </div>
+      <div class="foot-col">
+        <div class="label">Contact</div>
+        <div class="item">[Phone number]</div>
+        <div class="item">[Email address]</div>
+      </div>
+      <div class="foot-col">
+        <div class="label">Location</div>
+        <div class="item">Cape Town, South Africa</div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 West Coast Interventional Radiology</span>
+      <span>South Africa</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var els = document.querySelectorAll('.reveal, .reveal-group');
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
+      });
+    }, { threshold:0.1, rootMargin:'0px 0px -40px 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  })();
+</script>
+</body>
+</html>
