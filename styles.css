@@ -63,12 +63,17 @@ nav .wrap{ display:flex; align-items:center; justify-content:space-between; heig
 /* AUDIENCE BAR */
 body:not(.show-clinician) .aud-clinician{ display:none; }
 body:not(.show-patient) .aud-patient{ display:none; }
-.audience-bar{ background:var(--paper-2); border-bottom:1px solid var(--line); padding:11px 0; }
+.audience-bar{ background:var(--paper-2); border-bottom:1px solid var(--line); padding:12px 0; transition:background .3s ease, border-color .3s ease; }
+body.show-clinician .audience-bar{ background:var(--navy); border-bottom-color:var(--navy-light); }
 .audience-bar .wrap{ display:flex; align-items:center; gap:14px; justify-content:center; }
-.audience-bar .label{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:#5C6B72; letter-spacing:0.05em; }
-.audience-toggle{ display:inline-flex; background:#fff; border:1px solid var(--line); border-radius:999px; padding:3px; }
-.audience-toggle button{ font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.04em; padding:7px 16px; border:none; border-radius:999px; background:transparent; color:#5C6B72; cursor:pointer; transition:background .2s, color .2s; }
-.audience-toggle button.active{ background:linear-gradient(135deg, var(--teal), var(--teal-deep)); color:#fff; }
+.audience-bar .label{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:#5C6B72; letter-spacing:0.05em; transition:color .3s ease; }
+body.show-clinician .audience-bar .label{ color:#9FC1D2; }
+.audience-toggle{ display:inline-flex; background:#fff; border:1px solid var(--line); border-radius:999px; padding:3px; box-shadow:0 1px 3px rgba(20,40,60,0.06); }
+body.show-clinician .audience-toggle{ background:rgba(255,255,255,0.08); border-color:var(--navy-light); }
+.audience-toggle button{ font-family:'IBM Plex Sans', sans-serif; font-weight:600; font-size:12.5px; letter-spacing:0.01em; padding:8px 18px; border:none; border-radius:999px; background:transparent; color:#8A98A0; cursor:pointer; transition:background .2s, color .2s; }
+body.show-clinician .audience-toggle button{ color:#7C93A0; }
+.audience-toggle button.active{ background:linear-gradient(135deg, var(--teal), var(--teal-deep)); color:#fff; box-shadow:0 2px 8px rgba(31,126,144,0.35); }
+body.show-clinician .audience-toggle button.active{ background:linear-gradient(135deg, var(--gold), var(--gold-deep)); box-shadow:0 2px 8px rgba(184,129,31,0.4); }
 
 /* PAGE HERO (inner pages) */
 .page-hero{ background:linear-gradient(180deg, #F0F6F7 0%, var(--paper) 75%); padding:72px 0 60px; }
